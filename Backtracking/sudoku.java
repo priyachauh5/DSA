@@ -37,7 +37,7 @@ public class Sudoku {
 
         // Calculate the next cell
         int nextRow = row, nextCol = col + 1;
-        if (col == 8) { // Move to the next row if column is 8
+        if (col+1==9) { // Move to the next row if column is 8
             nextRow = row + 1;
             nextCol = 0;
         }
