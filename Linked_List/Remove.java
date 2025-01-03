@@ -70,7 +70,7 @@ public class PrintLinkedList{
     public int removeFirst(){
         if(size==0){
             System.out.println("LL is empty");
-            return Integer.MIN_VALUE;
+            return Integer.MIN_VALUE; //-infinity ko return kiya hai kyuki koi valid data nahi tha kisi node ke andar
         }else if(size==1){ //head bhi null tail bhi null banega
             int val=head.data; //jo value ko delete karna hai
             head=tail=null;

@@ -1,3 +1,5 @@
+//O(nlogn)
+
 public class LinkedList {
     public static class Node {
         int data;
@@ -87,40 +89,54 @@ public class LinkedList {
         System.out.println("null");
     }
 
-    public void deleteNthfromEnd(int n){
-        //calculate size
-        int sz=0;
-        Node temp=head;
-        while(temp!=null){ // calculate size;
-            temp=temp.next;
-            sz++;
+    public void sigzag(){
+        //Case1: mid
+        Node slow=head;
+        Node fast=head.next;
+        while(fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
         }
-        if(n==sz){
-            head=head.next; //removeFirst
-            return;
+        Node mid=slow;
+
+        //case2: Reverse 2nd half
+        Node prev=null;
+        Node curr=mid.next;
+        mid.next=null;
+        Node next;
+        while(curr!=null){ //3 variable 4steps
+            next=curr.next;
+            curr.next=prev;
+            prev=curr;
+            curr=next;
         }
-        //sz-n
-        int i=1;
-        int iToFind=sz-n; //prev
-        Node prev=head;
-        while(i<iToFind){
-            prev=prev.next;
-            i++;
+        Node left=head;
+        Node right=prev;
+        Node nextL, nextR;
+
+         //case3: alt merge-zig-zag merge
+        while(left!=null && right!=null){
+            nextL=left.next; //store
+            left.next=right; //point
+            nextR=right.next; //store
+            right.next=nextL; //point
+
+            left=nextL;
+            right=nextR
         }
-        prev.next=prev.next.next;
-        return;
+
     }
 
     public static void main(String[] args) {
-        Search ll = new Search();
-        ll.addFirst(2);
-        ll.addFirst(1);
+        LinkedList ll=new LinkedList();
+        ll.addLast(1);
+        ll.addLast(2);
         ll.addLast(3);
         ll.addLast(4);
-        // ll.addMiddle(3, 9);
+        ll.addLast(5);
+        //5->4->3->2->1
         ll.print();
-        ll.deleteNthfromEnd(3);
+        ll.zigZag();
         ll.print();
-        
     }
 }
