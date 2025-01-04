@@ -91,20 +91,27 @@ public class DoubleLL{
         System.out.println("null");
     }
 
+    public void reverse(){
+        Node prev=null;
+        Node curr=tail=head;
+        Node next;
+        while(curr!=null){
+            next=curr.next; //next ko bana do curr ka next
+            curr.next=prev;
+            curr.prev=next; //current ka prev next ko point kare
+            prev=curr;
+            curr=next;
+        }
+        head=prev;
+    }
+
     public static void main(String args[]){
         DoubleLL dll=new DoubleLL();
         dll.addFirst(3);
         dll.addFirst(2);
         dll.addFirst(1);
-        dll.addLast(6);
-        dll.addLast(7);
         dll.print();
-        System.out.println(dll.size);
-
-        dll.removeFirst();
+        dll.reverse();
         dll.print();
-        dll.removeLast();
-        dll.print();
-        System.out.println(dll.size);
     }
 }

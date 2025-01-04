@@ -102,7 +102,7 @@ public class PrintLinkedList{
         prev.next=null;
         tail=prev;
         size--;
-        return value;
+        return val;
     }
 
     public static void main(String args[]){
