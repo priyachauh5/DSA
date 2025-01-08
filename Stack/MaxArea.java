@@ -2,13 +2,14 @@
 
 import java.util.Stack;
 public class Histogram{
-    public static void maxArea(int args[]){
+    public static void maxArea(int arr[]){
         int maxArea=0;
         int nsr[]=new int[arr.length];
         int nsl[]=new int[arr.length];
 
-        //Next Smaller Right
+        //Next Smaller Right //O(n)
         Stack<Integer> s=new Stack<>();
+
         for(int i=arr.length-1; i>=0; i--){
             while(!s.isEmpty() && arr[s.peek()]>=arr[i]){
                 s.pop();
@@ -22,9 +23,9 @@ public class Histogram{
             s.push(i);
         }
 
-        //Next Smaller Left
+        //Next Smaller Left O(n)
         s=new Stack<>();
-        for(int i=0; i<arr.length-1; i++){
+        for(int i=0; i<arr.length; i++){
             //while
             while(!s.isEmpty() && arr[s.peek()]>=arr[i]){
                 s.pop();
@@ -40,7 +41,7 @@ public class Histogram{
         }
 
 
-        //Current Area: width=j-i-1=nsr[i]-nsl[i]-1
+        //Current Area: width=j-i-1=nsr[i]-nsl[i]-1 O(n)
         for(int i=0; i<arr.length; i++){
             int height=arr[i];
             int width=nsr[i]-nsl[i]-1;
