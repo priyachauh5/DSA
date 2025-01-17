@@ -5,7 +5,7 @@ public class rotatedSortedArr{
         }
         int mid=si+(ei-si)/2; //(si+ei)/2
 
-        //case Found
+        //Case Found
         if(arr[mid]==tar){
             return mid;
         }
