@@ -23,29 +23,61 @@ Output: [3, 1, 2, 5, 4]
 Constraints:
 1 <= n <= 1000
 -----------------------------------------------------------------------------------------------------------------------------------------*/
+// import java.util.ArrayList;
+
+// public class BeautifulArrayList {
+//     public static ArrayList<Integer> beautifulArray(int n) {
+//         ArrayList<Integer> result = new ArrayList<>();
+        
+//         // Start with the odd numbers
+//         for (int i = 1; i <= n; i += 2) {
+//             result.add(i);
+//         }
+        
+//         // Then add the even numbers
+//         for (int i = 2; i <= n; i += 2) {
+//             result.add(i);
+//         }
+        
+//         return result;
+//     }
+
+//     public static void main(String[] args) {
+//         // Test cases
+//         System.out.println(beautifulArray(4)); // Output: [1, 3, 2, 4]
+//         System.out.println(beautifulArray(5)); // Output: [1, 3, 5, 2, 4]
+//     }
+// }
+
 import java.util.ArrayList;
-
-public class BeautifulArrayList {
-    public static ArrayList<Integer> beautifulArray(int n) {
-        ArrayList<Integer> result = new ArrayList<>();
-        
-        // Start with the odd numbers
-        for (int i = 1; i <= n; i += 2) {
-            result.add(i);
+import java.util.Arrays;
+public class BeautifulArray{
+    public static int[] beautifulArray(int n){
+        ArrayList<Integer> ans=new ArrayList<>();
+        ans.add(1);
+        while(ans.size()<n){
+            ArrayList<Integer> temp=new ArrayList<>();
+            for(int element:ans){
+                if(2*element-1<=n){
+                    temp.add(2*element-1);
+                }
+            }
+             for(int element:ans){
+                if(2*element<=n){
+                    temp.add(2*element);
+                }
+            }
+            ans=temp;
         }
-        
-        // Then add the even numbers
-        for (int i = 2; i <= n; i += 2) {
-            result.add(i);
+        int res[]=new int[n];
+        for(int i=0; i<n; i++){
+            res[i]=ans.get(i);
         }
-        
-        return result;
+        return res;
     }
-
-    public static void main(String[] args) {
-        // Test cases
-        System.out.println(beautifulArray(4)); // Output: [1, 3, 2, 4]
-        System.out.println(beautifulArray(5)); // Output: [1, 3, 5, 2, 4]
+    public static void main(String args[]){
+        int n=4;
+        System.out.print(Arrays.toString(beautifulArray(n)));
     }
 }
 
