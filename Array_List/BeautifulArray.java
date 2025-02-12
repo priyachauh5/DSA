@@ -52,6 +52,7 @@ Constraints:
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 public class BeautifulArray{
     public static int[] beautifulArray(int n){
         ArrayList<Integer> ans=new ArrayList<>();
