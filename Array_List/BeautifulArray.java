@@ -64,7 +64,7 @@ public class BeautifulArray{
                     temp.add(2*element-1);
                 }
             }
-             for(int element:ans){
+            for(int element:ans){
                 if(2*element<=n){
                     temp.add(2*element);
                 }
