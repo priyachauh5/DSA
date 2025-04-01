@@ -1,6 +1,5 @@
 import java.util.*;
-
-public class BFS{
+public class DFS{
     public static class Edge{
         int src;
         int dest;
@@ -11,7 +10,7 @@ public class BFS{
             this.wt=w;
         }
     }
-    static void createGraph(ArrayList<Edge>[] graph){
+    static void createGraph(ArrayList<Edge>[] graph){ //O(V+E)
         for(int i=0; i<graph.length; i++){
             graph[i]=new ArrayList<>();
         }
@@ -39,27 +38,24 @@ public class BFS{
         graph[6].add(new Edge(6,5,1));
     }
 
-    public static void bfs(ArrayList<Edge>[] graph){ //O(n) //O(V+E) using Adjacency list
-        Queue<Integer> q=new LinkedList<>();
-        boolean visit[]=new boolean[graph.length];
-        q.add(0);
-
-        while(!q.isEmpty()){
-            int curr=q.remove();
-
-            if(!visit[curr]){
-                System.out.print(curr+" ");
-                visit[curr]=true;
-                for(int i=0; i<graph[curr].size(); i++){
-                    Edge e=graph[curr].get(i);
-                    q.add(e.dest);
-                }
+    //O(V+E)
+    public static boolean hasPath(ArrayList<Edge>[] graph, int src, int dest ,boolean visited[]){
+        if(src==dest){
+            return true;
+        }
+        visited[src]=true;
+        for(int i=0; i<graph[src].size(); i++){
+            Edge e=graph[src].get(i);
+            //e.dest=neighbour
+            if(!visited[e.dest] && hasPath(graph, e.dest, dest, visited)){
+                return true;
             }
         }
+        return false;
     }
 
     public static void main(String args[]){
-        /*
+                /*
               1----3
              /     |\
             0      | 5--6
@@ -68,8 +64,8 @@ public class BFS{
          */
         int V=7;
         @SuppressWarnings("unchecked")
-        ArrayList<Edge> graph[]=new ArrayList[V];
+        ArrayList<Edge>[] graph=new ArrayList[V];
         createGraph(graph);
-        bfs(graph);
+        System.out.print(hasPath(graph, 0, 5, new boolean[V]));
     }
 }
