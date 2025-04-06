@@ -43,7 +43,6 @@ public class DijkstrasAlgorithm{
 
         @Override
         public int compareTo(Pair p2){
-            
             return this.path-p2.path; //path based sorting for my pairs
         }
     }
