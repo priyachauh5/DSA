@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class DijkstrasAlgorithm{
-
      public static class Edge{
         int src;
         int dest;
