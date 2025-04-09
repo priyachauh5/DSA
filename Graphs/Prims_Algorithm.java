@@ -13,7 +13,7 @@ public class Prims_Algorithm{
         }
     }
 
-    static void createGraph(ArrayList<Edge> graph) {
+    static void createGraph(ArrayList<Edge> graph[]) {
         for(int i=0; i<graph.length; i++){
             graph[i]=new ArrayList<>();
         }
@@ -27,15 +27,15 @@ public class Prims_Algorithm{
         graph[2].add(new Edge(2, 0, 15));
         graph[2].add(new Edge(2, 3, 50));
 
-        graph[2].add(new Edge(3, 1, 40));
-        graph[2].add(new Edge(3, 2, 50));
+        graph[3].add(new Edge(3, 1, 40));
+        graph[3].add(new Edge(3, 2, 50));
     }
 
     static class Pair implements Comparable<Pair>{
         int v;
         int cost;
 
-        public pair(int v, int c){
+        public Pair(int v, int c){
             this.v=v;
             this.cost=c;
         }
@@ -50,7 +50,7 @@ public class Prims_Algorithm{
         pq.add(new Pair(0, 0)); //MST Cost/total min weight
         int finalCost=0;
 
-        while(!pq.isEMpty()){
+        while(!pq.isEmpty()){
             Pair curr=pq.remove();
             if(!vis[curr.v]){
                 vis[curr.v]=true;
@@ -63,14 +63,14 @@ public class Prims_Algorithm{
                 }
             }
         }
-        System.out.println("final(min) cost of MST="+ finalCost);
+        System.out.println("final(min) cost of MST= "+ finalCost);
     }
 
     public static void main(String args[]) {
         int V = 5;
+        @SuppressWarnings("unchecked")
         ArrayList<Edge> graph[] = new ArrayList[V];
         createGraph(graph);
-        bellmanFord(graph, 0, V);
         prims(graph);
     }
 }
