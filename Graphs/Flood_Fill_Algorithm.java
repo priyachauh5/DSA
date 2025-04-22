@@ -6,6 +6,7 @@ public class Flood_Fill_Algorithm{
         if(sr<0 || sc<0 || sr>=image.length || sc>=image[0].length || vis[sr][sc]|| image[sr][sc]!=orgCol){
             return;
         }
+        
         //left
         helper(image, sr, sc-1, color, vis, orgCol);
         //right
