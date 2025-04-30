@@ -136,6 +136,7 @@ public class Bellman_Ford_Algorithm {
         for (int i = 0; i < V; i++) {
             System.out.print(dist[i] + " ");
         }
+        
         System.out.println();
     }
     
