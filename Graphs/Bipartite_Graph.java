@@ -10,6 +10,7 @@ public class Cycle_Detection{
             this.dest=d;
         }
     }
+    
     static void createGraph(ArrayList<Edge>[] graph){
         for(int i=0; i<graph.length; i++){
             graph[i]=new ArrayList<>();
