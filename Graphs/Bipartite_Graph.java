@@ -1,8 +1,7 @@
 import java.util.*;
 
 public class Cycle_Detection{
-    public static class Edge{
-        
+    public static class Edge{   
         int src;
         int dest;
         public Edge(int s, int d){
