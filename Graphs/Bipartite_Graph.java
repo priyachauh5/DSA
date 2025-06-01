@@ -13,6 +13,7 @@ public class Cycle_Detection{
         for(int i=0; i<graph.length; i++){
             graph[i]=new ArrayList<>();
         }
+        
         graph[0].add(new Edge(0, 2));
         graph[0].add(new Edge(0, 1));
 
