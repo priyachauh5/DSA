@@ -29,7 +29,6 @@ public class Cycle_Detection{
         graph[4].add(new Edge(4, 3));
         graph[4].add(new Edge(4, 2));
     }
-
     public static boolean isBipartite(ArrayList<Edge>[] graph){
         int col[]=new int[graph.length];
         for(int i=0; i<col.length; i++){
