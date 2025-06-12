@@ -34,7 +34,7 @@ import java.util.Arrays;
 // }
 
 
-//time complexity: O(n)
+//Time complexity: O(n)
 //Tabulation
 public class ClimbingStairs {
     public static int countWays(int n){
@@ -51,7 +51,7 @@ public class ClimbingStairs {
         return dp[n];
     }
     public static void main(String args[]){
-        int n=5; //no of stairs;
+        int n=5;
         System.out.println(countWays(n));
     }
 }
