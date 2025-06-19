@@ -50,7 +50,7 @@ public class ClimbingStairs {
             }
         }
         return dp[n];
-    }
+    } 
     public static void main(String args[]){
         int n=5;
         System.out.println(countWays(n));
