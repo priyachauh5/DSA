@@ -62,5 +62,6 @@ public class Adjacency_List{
             Edge e=graph[2].get(i); //src, dest, et
             System.out.println(e.dest);
         }
+        
     }
 }
